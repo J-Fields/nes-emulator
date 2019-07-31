@@ -20,8 +20,8 @@ impl ROM {
       }
 
       // Sizes of memory regions, in bytes
-      let prg_size = (header[4] as u32) * 16000;
-      let chr_size = (header[5] as u32) * 8000;
+      let prg_size = u32::from(header[4]) * 16000;
+      let chr_size = u32::from(header[5]) * 8000;
 
       println!("prg_size: {}", prg_size);
       println!("chr_size: {}", chr_size);

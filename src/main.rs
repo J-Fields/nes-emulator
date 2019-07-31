@@ -1,3 +1,5 @@
+mod opcode;
+mod cpu;
 mod nes;
 mod rom;
 
@@ -10,7 +12,7 @@ fn main() {
     let rom_path = args.get(1);
 
     if let Some(rom_path) = rom_path {
-        let nes = NES::new();
+        let mut nes = NES::new();
         let rom = ROM::new(rom_path);
 
         match rom {
