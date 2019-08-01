@@ -1,6 +1,6 @@
-mod opcode;
 mod cpu;
 mod nes;
+mod instruction;
 mod rom;
 
 use nes::NES;
@@ -18,7 +18,7 @@ fn main() {
         match rom {
             Ok(rom) => {
                 println!("Starting game at path:  {}", rom_path);
-                nes.start_game(rom);
+                nes.execute(rom);
             }
             Err(err) => {
                 println!("{}", err);
