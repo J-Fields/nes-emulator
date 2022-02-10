@@ -17,7 +17,7 @@ fn main() {
 
         match rom {
             Ok(rom) => {
-                println!("Starting game at path:  {}", rom_path);
+                println!("Starting game at path:  {rom_path}");
                 nes.execute(rom);
             }
             Err(err) => {

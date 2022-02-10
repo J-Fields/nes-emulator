@@ -26,13 +26,13 @@ impl Rom {
         let rom_contents = fs::read(rom_path);
 
         if let Ok(rom_contents) = rom_contents {
-            println!("Successfully read {}", rom_path);
+            println!("Successfully read {rom_path}");
 
             let header = &rom_contents[..16];
             let magic_string = String::from_utf8(header[..3].to_vec());
             if let Ok(magic_string) = magic_string {
                 if magic_string != "NES" || header[3] != 0x1A {
-                    return Err(format!("Magic string was wrong: was {}", magic_string));
+                    return Err(format!("Magic string was wrong: was {magic_string}"));
                 }
             } else {
                 return Err("Could not parse magic string in ROM header".to_string());
@@ -74,7 +74,7 @@ impl Rom {
                 chr_rom,
             })
         } else {
-            Err(format!("Encountered an error reading {}", rom_path))
+            Err(format!("Encountered an error reading {rom_path}"))
         }
     }
 
