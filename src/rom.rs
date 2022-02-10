@@ -11,7 +11,7 @@ pub enum Mirroring {
   FourScreen,
 }
 
-pub struct ROM {
+pub struct Rom {
   mapper: u8,
   mirroring: Mirroring,
   persistent_memory: bool,
@@ -21,8 +21,8 @@ pub struct ROM {
   chr_rom: Vec<u8>,
 }
 
-impl ROM {
-  pub fn new(rom_path: &str) -> Result<ROM, String> {
+impl Rom {
+  pub fn new(rom_path: &str) -> Result<Rom, String> {
     let rom_contents = fs::read(rom_path);
 
     if let Ok(rom_contents) = rom_contents {
@@ -64,7 +64,7 @@ impl ROM {
 
       // TODO: parse VS Unisystem bit and PlayChoice-10 bit
 
-      Ok(ROM {
+      Ok(Rom {
         mapper,
         mirroring,
         persistent_memory,

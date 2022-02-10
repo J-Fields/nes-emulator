@@ -1,17 +1,17 @@
-use crate::cpu::CPU;
+use crate::cpu::Cpu;
 use crate::instruction::Instruction;
-use crate::rom::ROM;
+use crate::rom::Rom;
 
-pub struct NES {
-  cpu: CPU,
+pub struct Nes {
+  cpu: Cpu,
 }
 
-impl NES {
-  pub fn new() -> NES {
-    NES { cpu: CPU::new() }
+impl Nes {
+  pub fn new() -> Nes {
+    Nes { cpu: Cpu::new() }
   }
 
-  pub fn execute(&mut self, rom: ROM) {
+  pub fn execute(&mut self, rom: Rom) {
     rom.verify();
     let mut memory: Vec<u8> = vec![0x09, 0b1111_1111, 0x29, 0b0110_1011];
 

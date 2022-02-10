@@ -3,8 +3,8 @@ mod nes;
 mod instruction;
 mod rom;
 
-use nes::NES;
-use rom::ROM;
+use nes::Nes;
+use rom::Rom;
 use std::env;
 
 fn main() {
@@ -12,8 +12,8 @@ fn main() {
     let rom_path = args.get(1);
 
     if let Some(rom_path) = rom_path {
-        let mut nes = NES::new();
-        let rom = ROM::new(rom_path);
+        let mut nes = Nes::new();
+        let rom = Rom::new(rom_path);
 
         match rom {
             Ok(rom) => {

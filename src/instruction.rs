@@ -2,6 +2,8 @@ extern crate bit_vec;
 
 use bit_vec::BitVec;
 
+#[allow(dead_code)]
+#[allow(clippy::upper_case_acronyms)]
 #[derive(Debug)]
 pub enum Opcode {
   ADC,
@@ -62,6 +64,7 @@ pub enum Opcode {
   TYA,
 }
 
+#[allow(dead_code)]
 #[derive(Debug)]
 pub enum AddressMode {
   Implicit,

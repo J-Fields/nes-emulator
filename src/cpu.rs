@@ -14,7 +14,7 @@ struct StatusRegister {
 }
 
 #[derive(Debug)]
-pub struct CPU {
+pub struct Cpu {
   pub pc: u16,       // Program counter
   s: u8,             // Stack pointer
   p: StatusRegister, // Status register
@@ -23,9 +23,9 @@ pub struct CPU {
   y: u8,             // Y index
 }
 
-impl CPU {
-  pub fn new() -> CPU {
-    CPU {
+impl Cpu {
+  pub fn new() -> Cpu {
+    Cpu {
       // pc: 0x34,
       pc: 0,
       s: 0xFD,
