@@ -1,6 +1,6 @@
 mod cpu;
-mod nes;
 mod instruction;
+mod nes;
 mod rom;
 
 use nes::Nes;
