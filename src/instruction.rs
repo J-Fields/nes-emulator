@@ -67,18 +67,32 @@ pub enum Opcode {
 #[allow(dead_code)]
 #[derive(Debug)]
 pub enum AddressMode {
+    /// Used for instructions which do not access memory (e.g. NOP).
     Implicit,
+    /// Used for instructions which operate directly on the contents of the accumulator.
     Accumulator,
+    /// Single operand: constant value to operate on.
     Immediate,
+    /// Single operand: pointer to address in zero page ($0000-$00FF).
     ZeroPage,
+    /// Single operand: pointer to address in zero page ($0000-$00FF). Offset in register X is added.
     ZeroPageX,
+    /// Single operand: pointer to address in zero page ($0000-$00FF). Offset in register Y is added.
     ZeroPageY,
+    /// Single operand: signed offset to apply to program counter if some condition is met. Used for branches.
     Relative,
+    /// Two operands specifying address, least significant byte first.
     Absolute,
+    /// Two operands specifying address, least significant byte first. Offset in X register X is added.
     AbsoluteX,
+    /// Two operands specifying address, least significant byte first. Offset in register Y is added.
     AbsoluteY,
+    /// Two operands specifying address, least significant byte first. Address to use is stored at this address.
     Indirect,
+    /// Single operand: offset applied to address in register X. Address to use is stored at this address.
     IndexedIndirect,
+    /// Single operand: pointer to address in zero page ($0000-$00FF).
+    /// Address to use is stored at this address, after adding offset in register Y.
     IndirectIndexed,
 }
 

@@ -4,12 +4,19 @@ use crate::instruction::Opcode;
 
 #[derive(Debug)]
 struct StatusRegister {
+    /// Set if the last instruction resulted in an overflow or underflow.
     carry: bool,
+    /// Set if the last instruction was zero.
     zero: bool,
+    /// When set, IRQs are ignored. Set with SEI, cleared with CLI.
     int_disabled: bool,
+    /// Ignored on 2A03.
     dec_mode: bool,
+    /// Set when BRK is executed.
     brk: bool,
+    /// Set if the last instruction resulted in an invalid two's compelement result.
     overflow: bool,
+    /// Set if the result of the last instruction was negative.
     sign: bool,
 }
 
